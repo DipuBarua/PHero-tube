@@ -20,8 +20,6 @@ const displayCategories = (categories) => {
 
         // category btn clicked 
         categoriesBtn.addEventListener('click', () => {
-            // showElements();
-            // console.log('button clicked..');
             loadAllElements(eachCategory);
         })
     })
@@ -32,40 +30,55 @@ const loadAllElements = async (eachCategory) => {
     const data = await res.json();
     // console.log(data);
     const elements = data.data;
-    console.log(elements);
+    // console.log(elements);
     displayAllElements(elements);
 
 }
 
 const displayAllElements = (elements) => {
+    // call the parent container
+    const allElementsContainer = document.getElementById('all-elements-container');
+    // clear the previous loaded all elements >>
+    allElementsContainer.textContent = '';
+
+    // empty container with message >> not found data......................
+
+
     elements.forEach(eachElement => {
         const element = document.createElement('div');
         element.classList = `card w-auto bg-base-100 shadow-xl`;
         element.innerHTML = `
-    <figure><img src="${eachElement.thumbnail}" alt="thumbnail" /></figure>
-    <div class="flex">
-    <div class="bg-gray-500 "> 
-    <img class="rounded-full" src="${eachElement.authors[0]?.profile_picture}" alt="author" /> 
+    <figure class="relative" >
+    <img src="${eachElement.thumbnail}" alt="thumbnail"/>
+    <div class="absolute right-0 bottom-0 text-blue-600 bg-black">${eachElement.others?.posted_date}</div>
+    </figure>
+    
+    <div class="flex gap-4 my-5">
+    <div class="bg-base-100 w-12 rounded-full "> 
+    <img class="rounded-full w-full" src="${eachElement.authors[0]?.profile_picture}" alt="author" /> 
     </div>
-    <div class="card-body">
-   
+
+    <div>
       <h2 class="card-title">
         ${eachElement.title}
       </h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
-      <div class="card-actions justify-end">
-      </div>
+      <p>
+      <span>${eachElement.authors[0]?.profile_name}</span>
+      <span>${eachElement.authors[0]?.verified}</span>
+      </p>
+      <p>${eachElement.others?.views}<span> views </span></p>
     </div>
     </div>
     `;
-        const allElementsContainer = document.getElementById('all-elements-container');
+
+        // append the new element to the parent container 
         allElementsContainer.appendChild(element);
     })
 }
 
 
 
-
+//called categorized btn
 loadTube();
 
 
