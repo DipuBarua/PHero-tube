@@ -1,7 +1,7 @@
 const loadTube = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     const categories = data.data;
     displayCategories(categories);
 
@@ -11,7 +11,7 @@ const displayCategories = (categories) => {
     // console.log(categories);
     categories.forEach(eachCategory => {
         const categoriesBtn = document.createElement('button');
-        categoriesBtn.classList = `btn btn-primary w-1/2`
+        categoriesBtn.classList = `btn btn-active w-1/2`
         categoriesBtn.innerHTML = `${eachCategory.category}`;
 
         const categoriesContainer = document.getElementById('categories-container');
@@ -33,7 +33,7 @@ const loadAllElements = async (eachCategory) => {
     const elements = data.data;
     const message = data.message;
     const empty = data.status;
-    // console.log(empty);
+
     displayAllElements(elements, message, empty);
 }
 
@@ -49,7 +49,7 @@ const displayAllElements = (elements, message, empty) => {
     // console.log(message);
     // console.log(empty);
 
-    // empty container with message >> not found data......................
+    // empty container with message >> not found data......................???
     if (!empty) {
         const emptyCatetory = document.createElement('div');
         emptyCatetory.classList = `md:col-start-2`
@@ -69,7 +69,7 @@ const displayAllElements = (elements, message, empty) => {
             element.innerHTML = `
     <figure class="relative" >
     <img src="${eachElement.thumbnail}" alt="thumbnail"/>
-    <div class="absolute right-0 bottom-0 text-blue-600 bg-black">${eachElement.others?.posted_date}</div>
+    <div class="absolute right-0 bottom-0 px-1 rounded-sm text-base-100 bg-black">${Math.floor(eachElement.others?.posted_date / 3600)}hrs ${Math.floor(eachElement.others?.posted_date / 60)}min ago</div>
     </figure>
     
     <div class="flex gap-4 my-5">
@@ -93,9 +93,36 @@ const displayAllElements = (elements, message, empty) => {
             // append the new element to the parent container 
             allElementsContainer.appendChild(element);
         })
-    }//>> else closed
+    }
+
+
+
+
+    // Sort by views btn
+    // const sortBtn = document.getElementById('sort-view-btn');
+    // sortBtn.addEventListener('click', () => {
+    //     elements.forEach(element => {
+    //         const viewList = [element.others.views];
+    //         viewList.sort(function (a, b) { return b - a });
+    //         console.log(viewList);
+
+    //     })
+
+
+    // })
+
 
 }
+
+
+
+// const displaySortBtn = () => {
+//     const navCortainer = document.getElementById('navbar-container');
+//     const sortBtn = document.createElement('button');
+//     sortBtn.classList = `btn btn-accent normal-case text-xl`;
+//     sortBtn.innerHTML = `sort by view`;
+//     navCortainer.appendChild(sortBtn);
+// };
 
 
 

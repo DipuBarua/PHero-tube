@@ -14,17 +14,18 @@
 
 <body class="container mx-auto">
   <header>
-    <nav class="navbar bg-gray-100 grid md:grid-cols-3 gap-20 mb-10 ">
-      <a class="btn btn-ghost normal-case text-xl"><img src="Logo.png" alt="pHero tube"></a>
+    <nav id="navbar-container" class=" bg-gray-100 grid md:grid-cols-3 gap-20 mb-10 py-5  justify-items-center">
+      <a class="btn btn-ghost normal-case text-xl w-1/2"><img src="Logo.png" alt="pHero tube"></a>
 
-      <a class="btn btn-accent normal-case text-xl">sort by view</a>
+      <button id="sort-view-btn" class="btn bg-gray-200 normal-case text-xl w-1/2">Sort by view</button>
 
-      <a id="blog-page" class="btn btn-accent normal-case text-xl">Blog</a>
+      <button id="blog-page" class="btn bg-red-600 normal-case text-xl w-1/2">Blog</button>
     </nav>
+
   </header>
 
   <main>
-    <div id="categories-container" class="grid grid-cols-2 md:grid-cols-4 gap-5 justify-center bg-slate-600">
+    <div id="categories-container" class="grid grid-cols-2 md:grid-cols-4 gap-2 justify-items-center">
       <!-- <button class="btn btn-primary">Button</button> -->
     </div>
 

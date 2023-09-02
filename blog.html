@@ -9,20 +9,104 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<style>
+    .container {
+        background-color: wheat;
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 50px;
+        margin: 30px;
+
+    }
+
+    p {
+        color: black;
+        padding: 5px 2px;
+    }
+
+    h3 {
+        color: green;
+    }
+</style>
 
 <body>
-    <div class="">
-        <div>
-            <h1 class="text-2xl bg-gray-200  my-10">Discuss the scope of var, let, and const</h1>
-            <p></p>
+    <div class="mb-3 mx-2">
+        <div class="container">
+            <h1 class="text-2xl bg-gray-200">Discuss the scope of var, let, and const</h1>
+            <p>
+                var: var is a declaration system of variable. globally we can initialize a variable using var from any
+                where even after console we can declar variable using var. but in let and const we have initialize
+                variable.
+            <h3>
+                EX:
+                m =44;
+                console.log(m);
+                var m = 43;
+                //output >> 44
+            </h3>
+            </p>
+            <P>
+                let: let is a kind of declaration way (data or variable type) which allows to change the value of a
+                variable continously. which is helpful to continue a loop.
+            <h3>
+                Ex:
+                let y = 4;
+                y=2;
+                console.log(y);
+                //output >> 2
+            </h3>
+            </P>
+            <p>
+                const: const is a declaration way where values of a variable are fixed. we can't change or set new
+                values after initial declaration.
+                it is a kind of constant value after first declaration. That is why const can create error in loop.
+                Though, it is better except continous value changing variable like in loop.
+            </p>
+            <h3>
+                EX:
+                const x =10;
+                x=3;
+                console.log(x);
+                // output >> TypeError
+            </h3>
         </div>
-        <div>
-            <h1 class="text-2xl bg-gray-200 my-10">Tell us the use cases of null and undefined</h1>
-            <p></p>
+        <div class="container">
+            <h1 class="text-2xl bg-gray-200">Tell us the use cases of null and undefined</h1>
+            <p>
+                NULL:
+                when we want to get null value from a variable, we can set null.
+            <h3>
+                EX:
+                let x = 32;
+                x = null;
+                console.log(x);
+                // output >> null
+            </h3>
+            </p>
+            <p>
+                UNDEFINED:
+                In function, without return if we try to get function result from out of function scope, we must get
+                undefined.
+            <h3>
+                EX:
+                function num(a){
+                console.log(a);
+                }
+                console.log(num(4));
+                //output >> 4 undefined
+            </h3>
+            </p>
         </div>
-        <div>
-            <h1 class="text-2xl bg-gray-200 my-10">What do you mean by REST API?</h1>
-            <p></p>
+        <div class="container">
+            <h1 class="text-2xl bg-gray-200">What do you mean by REST API?</h1>
+            <p>
+                API: application programming interface. api work like a middle man between server site and user site. when user send a request to get required data then API receive the request and fetch the required data from server and then send to clien site.
+                this API system works on depending promise function. That is why some time API has failed to fetch data. such as: if i lose the internet connection, at the meantime of running API system, definitely API will failed to fetch data.
+                
+                <h3>
+                    Ex: API works like a waiter in resturant. customers order food(data),waiter(API) receive the order then waiter go to kitchen(server) and then come to customers with food.
+                </h3>
+            </p>
         </div>
     </div>
 
